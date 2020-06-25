@@ -8,10 +8,10 @@ public class AvondUit {
     Notifications notify = new Notifications();
 
     Attracties botsAuto = new BotsAuto("Bobbie Botsers", 2.50);
-    Attracties spin = new Spin("Mega Spinner", 2.25, 5, false, 5);
+    RisicoRijkeAttracties spin = new Spin("Mega Spinner", 2.25, 5, false, 5);
     Attracties spiegelPaleis = new SpiegelPaleis("Super Spiegels", 2.75);
     Attracties spookHuis = new Spookhuis("The Haunted House", 3.20);
-    Attracties hawaii = new Hawaii("Hawaii", 2.90, 10, false, 10);
+    RisicoRijkeAttracties hawaii = new Hawaii("Hawaii", 2.90, 10, false, 10);
     LadderKlimmen ladderKlimmen = new LadderKlimmen("Snakes & Ladders", 5.00);
     BelastingInspecteur barry = new BelastingInspecteur();
 
@@ -91,6 +91,7 @@ public class AvondUit {
                 break;
             case "m":
                 hawaii.onderhoudsBeurt();
+                spin.onderhoudsBeurt();
         }
     }
 }

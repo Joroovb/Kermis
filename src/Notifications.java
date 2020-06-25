@@ -12,6 +12,7 @@ public class Notifications {
                             "5. Hawaii\n" +
                             "6. Ladder Klimmen\n" +
                             "O. Totale omzet\n" +
-                            "K. Totaal kaartjes\n");
+                            "K. Totaal kaartjes\n" +
+                            "M. Roep de monteur\n");
     }
 }

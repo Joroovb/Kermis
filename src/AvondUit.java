@@ -44,7 +44,12 @@ public class AvondUit {
                 break;
             case "2":
                 spin.watbenik();
-                spin.attractieBezocht();
+                try {
+                    spin.attractieBezocht();
+                } catch (Exception e) {
+                    System.out.println("Dit mag niet meer");
+                    break;
+                }
                 System.out.println(Attracties.kassa);
                 System.out.println(spin.aantalGekochteKaartjes);
                 break;
@@ -66,6 +71,7 @@ public class AvondUit {
                     hawaii.attractieBezocht();
                 } catch (Exception e) {
                     System.out.println("Dit mag niet meer");
+                    break;
                 }
                 System.out.println(Attracties.kassa);
                 System.out.println(hawaii.aantalGekochteKaartjes);

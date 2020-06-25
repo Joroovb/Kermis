@@ -51,63 +51,11 @@ class BotsAuto extends Attracties{
     }
 }
 
-class Spin extends RisicoRijkeAttracties implements GokAttractie{
+class Spin extends RisicoRijkeAttracties implements GokAttractie {
     double belastingSparen = 0;
-
-    Spin (String naam, double prijs, int draaiLimiet, boolean keuring, int draaiLimietCounter) {
-        this.naam = naam;
-        this.prijs = prijs;
-        this.keuring = keuring;
-        opstellingsKeuring();
-        this.draaiLimiet = draaiLimiet;
-        this.draaiLimietCounter = draaiLimietCounter;
-    }
-
-    public void attractieBezocht() {
-        if (keuring) {
-            kassa += prijs;
-            aantalGekochteKaartjes++;
-            totaalGekochteKaartjes++;
-            draaiLimiet--;
-            System.out.println("dit is een test");
-            if (draaiLimiet == 0) {
-                keuring = false;
-            }
-        } else {
-            System.out.println("Deze attractie moet gekeurd worden");
-        }
-    }
-
-    public void kansSpelBelastingBetalen() {
-        double temp = (prijs * 30) / 100;
-        belastingSparen += temp;
-        System.out.println("belasting gespaard " + belastingSparen);
-    }
-
-    public void setBelastingSparen(double newBelastingSparen) {
-        belastingSparen = newBelastingSparen;
-    }
-}
-
-class SpiegelPaleis extends Attracties{
-
-    SpiegelPaleis (String naam, double prijs) {
-        this.naam = naam;
-        this.prijs = prijs;
-    }
-}
-
-class Spookhuis extends Attracties{
-    Spookhuis (String naam, double prijs) {
-        this.naam = naam;
-        this.prijs = prijs;
-    }
-}
-
-class Hawaii extends RisicoRijkeAttracties {
     int[] blabla = new int[10];
 
-    Hawaii(String naam, double prijs, int draaiLimiet, boolean keuring, int draaiLimietCounter) {
+    Spin(String naam, double prijs, int draaiLimiet, boolean keuring, int draaiLimietCounter) {
         this.naam = naam;
         this.prijs = prijs;
         this.keuring = keuring;
@@ -118,31 +66,79 @@ class Hawaii extends RisicoRijkeAttracties {
 
     public void attractieBezocht() {
         if (keuring) {
+            draaiLimiet--;
+            blabla[draaiLimiet] = draaiLimiet;
             kassa += prijs;
             aantalGekochteKaartjes++;
             totaalGekochteKaartjes++;
-            draaiLimiet--;
-            System.out.println("dit is een test");
-            blabla[draaiLimiet] = draaiLimiet;
         }
     }
-}
 
-class LadderKlimmen  extends Attracties implements GokAttractie {
-    double belastingSparen = 0;
+        public void kansSpelBelastingBetalen () {
+            double temp = (prijs * 30) / 100;
+            belastingSparen += temp;
+            System.out.println("belasting gespaard " + belastingSparen);
+        }
 
-    LadderKlimmen(String naam, double prijs) {
-        this.naam = naam;
-        this.prijs = prijs;
+        public void setBelastingSparen ( double newBelastingSparen){
+            belastingSparen = newBelastingSparen;
+        }
     }
 
-    public void kansSpelBelastingBetalen() {
-        double temp = (prijs * 30) / 100;
-        belastingSparen += temp;
-        System.out.println("belasting gespaard " + belastingSparen);
+    class SpiegelPaleis extends Attracties {
+
+        SpiegelPaleis(String naam, double prijs) {
+            this.naam = naam;
+            this.prijs = prijs;
+        }
     }
 
-    public void setBelastingSparen(double newBelastingSparen) {
-        belastingSparen = newBelastingSparen;
+    class Spookhuis extends Attracties {
+        Spookhuis(String naam, double prijs) {
+            this.naam = naam;
+            this.prijs = prijs;
+        }
     }
-}
+
+    class Hawaii extends RisicoRijkeAttracties {
+        int[] blabla = new int[10];
+
+        Hawaii(String naam, double prijs, int draaiLimiet, boolean keuring, int draaiLimietCounter) {
+            this.naam = naam;
+            this.prijs = prijs;
+            this.keuring = keuring;
+            opstellingsKeuring();
+            this.draaiLimiet = draaiLimiet;
+            this.draaiLimietCounter = draaiLimietCounter;
+        }
+
+        public void attractieBezocht() {
+            if (keuring) {
+                draaiLimiet--;
+                System.out.println("dit is een test");
+                blabla[draaiLimiet] = draaiLimiet;
+                kassa += prijs;
+                aantalGekochteKaartjes++;
+                totaalGekochteKaartjes++;
+            }
+        }
+    }
+
+    class LadderKlimmen extends Attracties implements GokAttractie {
+        double belastingSparen = 0;
+
+        LadderKlimmen(String naam, double prijs) {
+            this.naam = naam;
+            this.prijs = prijs;
+        }
+
+        public void kansSpelBelastingBetalen() {
+            double temp = (prijs * 30) / 100;
+            belastingSparen += temp;
+            System.out.println("belasting gespaard " + belastingSparen);
+        }
+
+        public void setBelastingSparen(double newBelastingSparen) {
+            belastingSparen = newBelastingSparen;
+        }
+    }
